@@ -4,11 +4,11 @@ import TodoList from '../atom/TodoList';
 
 class Todo extends Component {
     render() {
-        let {title,ListData}= this.props
+        let {title,ListData,onClick}= this.props
         return (
             <>
                 <h1>{title}</h1>
-                <TodoForm></TodoForm> 
+                <TodoForm onClick={onClick}></TodoForm> 
                 <TodoList ListData={ListData}></TodoList>            
             </>
         );

@@ -16,11 +16,14 @@ class TodoForm extends Component {
     }
 
     submitEvent=(e)=>{
+        let {onClick} = this.props;
+        let {inputData} = this.state;
         e.preventDefault()
-        alert("전송")  //비동기전송
+        onClick(inputData)
+        this.setState({
+            inputData:''
+        })
     }
-
-
 
     render() {
         return (
