@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Todo from '../components/Todo'
 import Header from '../common/Header';
 import Footer from '../common/Footer';
-
 import axios from 'axios'
 
 var sub1Title = "제목1"
@@ -29,10 +28,13 @@ class Sub1 extends Component {
 
     
     getListApi = () =>{
-        axios.get('/sub1').then(responseData => {
-            this.setState({
-                ListData:responseData.data
-            })
+        axios.get('/sub1').then(response => {
+            if(response.code ===1){
+                alert(response.data.msg)
+                this.setState({
+                    ListData:response.data.data
+                })
+            }
         }).catch(err => {
             console.log("에러")
             alert(err)
@@ -40,8 +42,8 @@ class Sub1 extends Component {
     }
 
     postListApi = (param) =>{
-        axios.post('/sub1',param).then(responseData => {
-            if(responseData.data==="생성 성공"){
+        axios.post('/sub1',param).then(response => {
+            if(response.data==="생성 성공"){
                 this.getListApi()
             }
         }).catch(err => {

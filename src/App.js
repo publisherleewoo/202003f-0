@@ -10,6 +10,7 @@ import {
 function App() {
   return (
     <Router>
+      
       <Switch>
         {
           router.map((r,i) => <Route key={i} exact={r.exact} path={r.path} component={r.component} />)
