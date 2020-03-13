@@ -11,7 +11,7 @@ class Sub1 extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            ListData: []
+            ListData: []   
         }
         console.log("컨스트럭터")
     }
@@ -34,6 +34,7 @@ class Sub1 extends Component {
                 ListData:responseData.data
             })
         }).catch(err => {
+            console.log("에러")
             alert(err)
         })
     }
